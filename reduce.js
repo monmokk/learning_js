@@ -1,13 +1,15 @@
 const arr1 = [1, 2, 3, 4];
 const sumWithInit = arr1.reduce((acc, cur, _, __) => acc + cur, 0);
+console.log(sumWithInit)
 
-var maxCallback = ( acc, cur ) => Math.max( acc.x, cur.x );
-var maxCallback2 = ( max, cur ) => Math.max( max, cur );
+const maxCallback = (acc, cur) => Math.max(acc.x, cur.x);
+const maxCallback2 = (max, cur) => Math.max(max, cur);
 
-// initialValue 없이 reduce()
-[ { x: 22 }, { x: 42 } ].reduce( maxCallback ); // 42
-[ { x: 22 }            ].reduce( maxCallback ); // { x: 22 }
-[                      ].reduce( maxCallback ); // TypeError
+// initialValue 없이 reduce() 오류남
+// console.log([ { x: 22 }, { x: 42 } ].reduce( maxCallback ));
+// console.log([ { x: 22 }            ].reduce( maxCallback ));
+// console.log([                      ].reduce( maxCallback ));
+
 
 // map/reduce로 개선 - 비었거나 더 큰 배열에서도 동작함
 [ { x: 22 }, { x: 42 } ].map( el => el.x )
@@ -62,6 +64,7 @@ console.log(groupedPeople);
 
 /**
  * @param {array} arr - promise arr
+ * @param input
  * @return {Object} promise object
  */
 function runPromiseInSequence(arr, input) {
@@ -72,13 +75,13 @@ function runPromiseInSequence(arr, input) {
 }
 
 function p1(a) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         resolve(a * 5);
     });
 }
 
 function p2(a) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         resolve(a * 2);
     });
 }
@@ -88,7 +91,7 @@ function f3(a) {
 }
 
 function p4(a) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         resolve(a * 4);
     });
 }
