@@ -40,7 +40,6 @@ const countedNames = names.reduce(function (allNames, name) {
 }, {});
 
 console.log(countedNames);
-
 const people = [
     { name: 'Alice', age: 21 },
     { name: 'Max', age: 20 },
